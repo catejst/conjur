@@ -9,7 +9,8 @@ module AuthnOidcHelper
   ACCOUNT = 'cucumber'
 
   def authenticate_id_token_with_oidc(service_id:, account:, id_token: parsed_id_token)
-    path = "#{conjur_hostname}/authn-oidc/#{service_id}/#{account}/authenticate"
+    service_id_part = service_id ? "/#{service_id}" : ""
+    path = "#{conjur_hostname}/authn-oidc#{service_id_part}/#{account}/authenticate"
 
     payload = {}
     unless id_token.nil?

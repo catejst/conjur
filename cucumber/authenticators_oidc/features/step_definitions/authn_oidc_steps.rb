@@ -28,6 +28,10 @@ When(/^I authenticate via OIDC with id token$/) do
   authenticate_id_token_with_oidc(service_id: AuthnOidcHelper::SERVICE_ID, account: AuthnOidcHelper::ACCOUNT)
 end
 
+When(/^I authenticate via OIDC with id token and without a service-id$/) do
+  authenticate_id_token_with_oidc(service_id: nil, account: AuthnOidcHelper::ACCOUNT)
+end
+
 When(/^I authenticate via OIDC with id token and account "([^"]*)"$/) do |account|
   authenticate_id_token_with_oidc(service_id: AuthnOidcHelper::SERVICE_ID, account: account)
 end

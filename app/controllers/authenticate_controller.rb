@@ -94,6 +94,15 @@ class AuthenticateController < ApplicationController
     authenticate(input)
   end
 
+  def authn_oidc_missing_service_id
+    log_error(
+      Errors::Authentication::AuthnOidc::ServiceIdMissing.new,
+      LogMessages::Authentication::AuthenticationError,
+      false
+    )
+    raise Unauthorized
+  end
+
   def authenticate_gcp
     params[:authenticator] = "authn-gcp"
     input = Authentication::AuthnGcp::UpdateAuthenticatorInput.new.(
@@ -193,10 +202,12 @@ class AuthenticateController < ApplicationController
     end
   end
 
-  def log_error(err, log_message_class)
+  def log_error(err, log_message_class, log_backtrace = true)
     logger.info(log_message_class.new(err.inspect))
-    err.backtrace.each do |line|
-      logger.debug(line)
+    if log_backtrace
+      err.backtrace.each do |line|
+        logger.debug(line)
+      end
     end
   end
 

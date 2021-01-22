@@ -171,6 +171,11 @@ module Errors
         code: "CONJ00013E"
       )
 
+      ServiceIdMissing = ::Util::TrackableErrorClass.new(
+        msg:  "Service id is required when authenticating with authn-oidc",
+        code: "CONJ00074E"
+      )
+
     end
 
     module AuthnIam

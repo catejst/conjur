@@ -15,6 +15,10 @@ Then(/it is unauthorized/) do
   expect(unauthorized?).to be(true), "http status is #{http_status}"
 end
 
+Then(/it is not found/) do
+  expect(not_found?).to be(true), "http status is #{http_status}"
+end
+
 Then(/it is forbidden/) do
   expect(forbidden?).to be(true), "http status is #{http_status}"
 end

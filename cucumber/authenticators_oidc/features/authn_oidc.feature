@@ -95,6 +95,16 @@ Feature: OIDC Authenticator - Hosts can authenticate with OIDC authenticator
     Errors::Authentication::Security::RoleNotFound
     """
 
+  Scenario: A request without a service id
+    Given I fetch an ID Token for username "alice" and password "alice"
+    And I save my place in the log file
+    When I authenticate via OIDC with id token and without a service-id
+    Then it is unauthorized
+    And The following appears in the log after my savepoint:
+    """
+    Errors::Authentication::AuthnOidc::ServiceIdMissing
+    """
+
   Scenario: User that is not permitted to webservice in ID token is denied
     Given I extend the policy with:
     """
