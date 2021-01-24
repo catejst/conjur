@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
     constraints account: /[^\/\?]+/ do
       constraints authenticator: /authn-?[^\/]*/, id: /[^\/\?]+/ do
+        # authn-oidc has to be first as it can be ambiguous with the optional :service_id in
+        # the common status request
+        get "/authn-oidc/:account/status" => "authenticate#status_oidc_missing_service_id"
         get '/:authenticator(/:service_id)/:account/status' => 'authenticate#status'
         
         patch '/:authenticator/:service_id/:account' => 'authenticate#update_config'

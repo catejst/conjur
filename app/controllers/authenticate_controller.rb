@@ -30,6 +30,13 @@ class AuthenticateController < ApplicationController
     render status_failure_response(e)
   end
 
+  def status_oidc_missing_service_id
+    render status_failure_response(
+      Errors::Authentication::AuthnOidc::ServiceIdMissing.new,
+      false
+    )
+  end
+
   def update_config
     body_params = Rack::Utils.parse_nested_query(request.body.read)
 
@@ -211,10 +218,12 @@ class AuthenticateController < ApplicationController
     end
   end
 
-  def status_failure_response(error)
+  def status_failure_response(error, log_backtrace = true)
     logger.debug("Status check failed with error: #{error.inspect}")
-    error.backtrace.each do |line|
-      logger.debug(line)
+    if log_backtrace
+      error.backtrace.each do |line|
+        logger.debug(line)
+      end
     end
 
     payload = {
