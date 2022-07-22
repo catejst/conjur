@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7.0'
 gem 'nokogiri', '>= 1.8.2'
 gem 'puma', '~> 3.12.5'
 gem 'rack', '~> 2.2.3'
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 5.2', '>= 5.2.4.4'
 gem 'rake'
 # gem 'sprockets', '~> 3.7.0', '>= 3.7.2'
 
@@ -52,7 +52,7 @@ gem 'ruby_dep', '= 1.3.1'
 # the branch doesn't immediately break this link
 gem 'conjur-api', github: 'cyberark/conjur-api-ruby', branch: 'master'
 gem 'conjur-policy-parser', path: 'gems/policy-parser'
-gem 'conjur-rack', '~> 4'
+gem 'conjur-rack', '~> 4', '>= 4.2.0'
 gem 'conjur-rack-heartbeat'
 gem 'rack-rewrite'
 
@@ -90,7 +90,7 @@ group :development, :test do
   gem 'aruba'
   gem 'csr'
   gem 'ci_reporter_rspec'
-  gem 'conjur-cli', '~> 6.1'
+  gem 'conjur-cli', '~> 6.2', '>= 6.2.2'
   gem 'conjur-debify', require: false
   gem 'cucumber'
   gem 'database_cleaner'
