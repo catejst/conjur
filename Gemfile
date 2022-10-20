@@ -17,10 +17,10 @@ gem 'base58'
 gem 'http', '~> 4.2.0'
 gem 'iso8601'
 gem 'jbuilder', '~> 2.7.0'
-gem 'nokogiri', '>= 1.8.2'
+gem 'nokogiri', '>= 1.13.9'
 gem 'puma', '~> 3.12.5'
 gem 'rack', '~> 2.2.3'
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 5.2', '>= 5.2.4.4'
 gem 'rake'
 # gem 'sprockets', '~> 3.7.0', '>= 3.7.2'
 
@@ -42,7 +42,7 @@ gem 'slosilo', '~> 2.2'
 
 # Explicitly required as there are vulnerabilities in older versions
 gem "ffi", ">= 1.9.24"
-gem "loofah", ">= 2.2.3"
+gem "loofah", ">= 2.7.0"
 
 # Installing ruby_dep 1.4.0
 # Gem::InstallError: ruby_dep requires Ruby version >= 2.2.5, ~> 2.2.
