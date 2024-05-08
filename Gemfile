@@ -84,7 +84,7 @@ gem 'websocket-client-simple'
 
 # authn-oidc
 gem 'jwt'
-gem 'openid_connect'
+gem 'openid_connect', '>= 1.3.0'
 
 group :development, :test do
   gem 'aruba'
