@@ -16,11 +16,11 @@ gem 'command_class'
 gem 'base58'
 gem 'http', '~> 4.2.0'
 gem 'iso8601'
-gem 'jbuilder', '~> 2.7.0'
+gem 'jbuilder', '~> 2.8.0'
 gem 'nokogiri', '>= 1.8.2'
 gem 'puma', '~> 3.12.5'
 gem 'rack', '~> 2.2.3'
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 7.1', '>= 7.1.0'
 gem 'rake'
 # gem 'sprockets', '~> 3.7.0', '>= 3.7.2'
 
@@ -31,7 +31,7 @@ gem 'pg'
 gem 'sequel', '4.49.0'
 gem 'sequel-pg_advisory_locking'
 gem 'sequel-postgres-schemata', require: false
-gem 'sequel-rails'
+gem 'sequel-rails', '>= 1.1.1'
 
 gem 'activesupport'
 gem 'base32-crockford'
@@ -42,7 +42,7 @@ gem 'slosilo', '~> 2.2'
 
 # Explicitly required as there are vulnerabilities in older versions
 gem "ffi", ">= 1.9.24"
-gem "loofah", ">= 2.2.3"
+gem "loofah", ">= 2.8.0"
 
 # Installing ruby_dep 1.4.0
 # Gem::InstallError: ruby_dep requires Ruby version >= 2.2.5, ~> 2.2.
@@ -52,7 +52,7 @@ gem 'ruby_dep', '= 1.3.1'
 # the branch doesn't immediately break this link
 gem 'conjur-api', github: 'cyberark/conjur-api-ruby', branch: 'master'
 gem 'conjur-policy-parser', path: 'gems/policy-parser'
-gem 'conjur-rack', '~> 4'
+gem 'conjur-rack', '~> 5', '>= 5.0.0'
 gem 'conjur-rack-heartbeat'
 gem 'rack-rewrite'
 
@@ -79,19 +79,19 @@ group :production do
 end
 
 # authn-k8s
-gem 'kubeclient'
+gem 'kubeclient', '>= 4.7.0'
 gem 'websocket-client-simple'
 
 # authn-oidc
 gem 'jwt'
-gem 'openid_connect'
+gem 'openid_connect', '>= 1.3.0'
 
 group :development, :test do
   gem 'aruba'
   gem 'csr'
   gem 'ci_reporter_rspec'
-  gem 'conjur-cli', '~> 6.1'
-  gem 'conjur-debify', require: false
+  gem 'conjur-cli', '~> 6.2', '>= 6.2.6'
+  gem 'conjur-debify', '>= 1.11.5', require: false
   gem 'cucumber'
   gem 'database_cleaner'
   gem 'json_spec'
@@ -100,12 +100,12 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'debase'
-  gem 'rails-controller-testing'
+  gem 'rails-controller-testing', '>= 1.0.5'
   gem 'rails_layout'
   gem 'rake_shared_context'
   gem 'rspec'
   gem 'rspec-core', '~> 3.0'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 4.0.1'
   gem 'ruby-debug-ide'
   gem 'spring'
   gem 'spring-commands-cucumber'
